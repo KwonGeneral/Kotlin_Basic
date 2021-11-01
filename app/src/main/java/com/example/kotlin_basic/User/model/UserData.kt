@@ -7,21 +7,21 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "tb_user")
 data class UserData(
     @PrimaryKey(autoGenerate = true)
-    var id: Int?,
+    var id: Int?,  // PK
 
     @ColumnInfo(name = "name")
-    val name: String?,
+    val name: String?,  // 이름
 
     @ColumnInfo(name = "age")
-    val age: String?,
+    val age: String?,  // 나이
 
     @ColumnInfo(name = "gender")
-    val gender: String?,
+    val gender: String?,  // 성별
 
     @ColumnInfo(name = "address")
-    val address: String?,
+    val address: String?,  // 주소
 
     @ColumnInfo(name = "phone")
-    val phone: String?,
+    val phone: String?,  // 연락처
 ) {
 }
