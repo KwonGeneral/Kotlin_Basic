@@ -5,9 +5,18 @@ import com.example.kotlin_basic.User.contain.Define.Companion.CREATE
 import com.example.kotlin_basic.User.model.UserData
 
 class ObserverViewModel {
+    fun clearSearch() {
+        search_result.value = ArrayList<UserData>()
+    }
+
     // LiveData 선언
     // 옵저버(Ovserver)는 특정 변수를 관찰한다.
+    var search_status = MutableLiveData<Int>()
     var search_result = MutableLiveData<List<UserData>>()
+
+    var selected_user = MutableLiveData<UserData>()
+
+
     var update_get_user_id = MutableLiveData<Int>()
     var update_user_name = MutableLiveData<String>()
     var update_user_age = MutableLiveData<String>()

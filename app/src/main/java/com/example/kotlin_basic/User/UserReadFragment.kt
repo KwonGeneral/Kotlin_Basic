@@ -38,11 +38,7 @@ class UserReadFragment : Fragment() {
                     layoutManager = LinearLayoutManager(context)
 
                     // UserAdapter의 매개변수로 UserItem 객체를 넘기기 위해 also 사용.
-                    adapter = UserAdapter(requireContext(), arrayListOf<UserItem>().also { item ->
-                        for(kk in list) {
-                            item.add(UserItem(kk.id!!, kk.name!!, kk.age!!, kk.gender!!, kk.address!!, kk.phone!!))
-                        }
-                    },
+                    adapter = UserAdapter(requireContext(),list as ArrayList<UserData>,
                         // object를 쓰는 것과 안 쓰는 것의 차이는
                         // override와 연관이 있어 보인다.
                         // object를 쓰지 않는다면

@@ -14,7 +14,7 @@ import com.example.kotlin_basic.User.model.UserDataBase
 import kotlinx.android.synthetic.main.fragment_user_read_item.view.*
 
 
-class UserAdapter constructor(var context:Context, var items:ArrayList<UserItem>, var adapterBtnClick: onAdapterBtnClick): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class UserAdapter constructor(var context:Context, var items:ArrayList<UserData>, var adapterBtnClick: onAdapterBtnClick): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(context)
         val itemView = inflater.inflate(R.layout.fragment_user_read_item, parent, false)
@@ -45,7 +45,7 @@ class UserAdapter constructor(var context:Context, var items:ArrayList<UserItem>
                     // 위의 문제점을 해결하기 위해서는
                     // 인터페이스를 사용하여 독립적으로 만들고 나서,
                     // 데이터 처리는 외부에서 하게끔 만들어야한다.
-                    adapterBtnClick.onUpdate(item.id)
+                    adapterBtnClick.onUpdate(item.id!!)
 
                 }
                 // 삭제 버튼 클릭 시, items 새로고침 및 DB 데이터 삭제.
@@ -62,7 +62,7 @@ class UserAdapter constructor(var context:Context, var items:ArrayList<UserItem>
 //                        item.phone
 //                    ))
 
-                    adapterBtnClick.onDelete(item.id)
+                    adapterBtnClick.onDelete(item.id!!)
 
                     items.removeAt(position)
                     notifyDataSetChanged()
